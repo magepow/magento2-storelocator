@@ -45,21 +45,21 @@ if (true):
 
                     </div>
 
-                    <div class="amlocator-block -search amlocator-search-radius">
-                        <label class="amlocator-title" id="range_radius" for="radius">
+                    <div class="storelocator-block -search storelocator-search-radius">
+                        <label class="storelocator-title" id="range_radius" for="radius">
                             Search Radius                    </label>
                         <label>, km</label>
-                        <div class="amlocator-wrapper">
-                            <div class="amlocator-range-slider" data-amlocator-js="range-slider">
-                                <div class="amlocator-handle ui-slider-handle">
-                                    <div class="amlocator-tooltip">
-                                        <span data-amlocator-js="radius-value" class="amount"></span>
-                                        <span data-amlocator-js="radius-measurment">
+                        <div class="storelocator-wrapper">
+                            <div class="storelocator-range-slider" data-storelocator-js="range-slider">
+                                <div class="storelocator-handle ui-slider-handle">
+                                    <div class="storelocator-tooltip">
+                                        <span data-storelocator-js="radius-value" class="amount"></span>
+                                        <span data-storelocator-js="radius-measurment">
                                         km                                    </span>
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" name="radius" data-amlocator-js="radius-select" value="500" min="0" max="500">
+                            <input type="hidden" name="radius" data-storelocator-js="radius-select" value="500" min="0" max="500">
                         </div>
                         <div>
                             <button style="width: 100%;margin: 5px 0px;">Locate Nearby</button>
@@ -67,38 +67,38 @@ if (true):
                     </div>
 
 
-                    <div class="amlocator-block -filter" >
-                        <div class="amlocator-filters-container">
-                            <div class="amlocator-title amlocator-attribute-filter" data-amlocator-js="filters-title" >
+                    <div class="storelocator-block -filter" >
+                        <div class="storelocator-filters-container">
+                            <div class="storelocator-title storelocator-attribute-filter" data-storelocator-js="filters-title" >
                                 <span>Filter</span>
-                                <span class="amlocator-arrow" style="float: right;">v</span>
+                                <span class="storelocator-arrow" style="float: right;">v</span>
                             </div>
-                            <div class="amlocator-content amlocator-hidden-filter" data-amlocator-js="filters-container" >
-                                <form class="attributes" action="#" data-amlocator-js="attributes-form">
-                                    <div class="amlocator-attribute-wrapper">
-                                        <div class="amlocator-label">Parking Availability</div>
-                                        <div class="amlocator-input">
-                                            <select name="1" class="amlocator-select">
+                            <div class="storelocator-content storelocator-hidden-filter" data-storelocator-js="filters-container" >
+                                <form class="attributes" action="#" data-storelocator-js="attributes-form">
+                                    <div class="storelocator-attribute-wrapper">
+                                        <div class="storelocator-label">Parking Availability</div>
+                                        <div class="storelocator-input">
+                                            <select name="1" class="storelocator-select">
                                                 <option value="" selected="">Please Select</option>
                                                 <option value="0">No</option>
                                                 <option value="1">Yes</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="amlocator-attribute-wrapper">
-                                        <div class="amlocator-label">ATM</div>
-                                        <div class="amlocator-input">
-                                            <select name="2" class="amlocator-select">
+                                    <div class="storelocator-attribute-wrapper">
+                                        <div class="storelocator-label">ATM</div>
+                                        <div class="storelocator-input">
+                                            <select name="2" class="storelocator-select">
                                                 <option value="" selected="">Please Select</option>
                                                 <option value="0">No</option>
                                                 <option value="1">Yes</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="amlocator-attribute-wrapper">
-                                        <div class="amlocator-label">New Arrivals</div>
-                                        <div class="amlocator-input">
-                                            <select name="3" class="amlocator-select storelocator_select_time" id="timer-name">
+                                    <div class="storelocator-attribute-wrapper">
+                                        <div class="storelocator-label">New Arrivals</div>
+                                        <div class="storelocator-input">
+                                            <select name="3" class="storelocator-select storelocator_select_time" id="timer-name">
                                                 <option value="" selected="">Please Select</option>
                                                 <?php foreach ($timer as $time):?>
                                                     <option value="<?php echo $time['time_id'] ?>"><?php echo $time['name'] ?></option>
@@ -119,10 +119,10 @@ if (true):
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="amlocator-attribute-wrapper">
-                                        <div class="amlocator-label">Payment Methods</div>
-                                        <div class="amlocator-input">
-                                            <select name="4" class="amlocator-select" multiple="multiple" data-amlocator-js="multiple-select" style="display: none;">
+                                    <div class="storelocator-attribute-wrapper">
+                                        <div class="storelocator-label">Payment Methods</div>
+                                        <div class="storelocator-input">
+                                            <select name="4" class="storelocator-select" multiple="multiple" data-storelocator-js="multiple-select" style="display: none;">
                                                 <option value="6">Cash</option>
                                                 <option value="7">Card</option>
                                                 <option value="8">PayPal</option>
@@ -136,19 +136,19 @@ if (true):
                                                 </div></div>
                                         </div>
                                     </div>
-                                    <div class="amlocator-attribute-wrapper">
-                                        <div class="amlocator-label">No-Contact Delivery</div>
-                                        <div class="amlocator-input">
-                                            <select name="9" class="amlocator-select">
+                                    <div class="storelocator-attribute-wrapper">
+                                        <div class="storelocator-label">No-Contact Delivery</div>
+                                        <div class="storelocator-input">
+                                            <select name="9" class="storelocator-select">
                                                 <option value="" selected="">Please Select</option>
                                                 <option value="0">No</option>
                                                 <option value="1">Yes</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="amlocator-attribute-wrapper">
-                                        <div class="amlocator-label">Brands</div>
-                                        <div class="amlocator-input">
+                                    <div class="storelocator-attribute-wrapper">
+                                        <div class="storelocator-label">Brands</div>
+                                        <div class="storelocator-input">
                                             <div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices" id="brand-search">
 
                                                     <li class="search-field">
@@ -159,7 +159,7 @@ if (true):
                                                     <ul class="chosen-results">
                                                     </ul>
                                                 </div></div>
-                                            <select name="8" class="amlocator-select select-options" id="select-options" multiple="multiple" data-amlocator-js="multiple-select" style="display: none;">
+                                            <select name="8" class="storelocator-select select-options" id="select-options" multiple="multiple" data-storelocator-js="multiple-select" style="display: none;">
                                                 <option value="0" class="option-select">
                                                     Adidas
                                                 </option>
@@ -180,9 +180,9 @@ if (true):
                                         </div>
                                     </div>
                                 </form>
-                                <div class="amlocator-actions">
-                                    <button class="amlocator-button amlocator-filter-attribute" id="filter-bt" title="Filter">Filter</button>
-                                    <span class="amlocator-clear" title="Reset" data-amlocator-js="clear-filters">Reset</span>
+                                <div class="storelocator-actions">
+                                    <button class="storelocator-button storelocator-filter-attribute" id="filter-bt" title="Filter">Filter</button>
+                                    <span class="storelocator-clear" title="Reset" data-storelocator-js="clear-filters">Reset</span>
 
                                 </div>
                             </div>
@@ -197,18 +197,18 @@ if (true):
 
                    <?php if ($store['is_active']==1):?>
 
-                   <div class="amlocator-store-desc" name="leftLocation" data-mapid="" data-amid="1">
+                   <div class="storelocator-store-desc" name="leftLocation" data-mapid="" data-amid="1">
 
 
 
 
-                           <div class="amlocator-block blocklaong" data-latitude="<?php echo $store['latitude'] ?>" data-longitude="<?php echo $store['longitude'] ?>" data-gmap-id="<?php echo $store['gmaps_id'] ?>">
-                           <div class="amlocator-image">
+                           <div class="storelocator-block blocklaong" data-latitude="<?php echo $store['latitude'] ?>" data-longitude="<?php echo $store['longitude'] ?>" data-gmap-id="<?php echo $store['gmaps_id'] ?>">
+                           <div class="storelocator-image">
                                <img src="<?php echo $this->getData('mediaURL') . $store['image']; ?>" width="100%" height="100%">
                            </div>
-                           <div class="amlocator-store-information">
-                               <div class="amlocator-title">
-                                   <a class="amlocator-link" href="#" title="Fashion Gallery" target="_blank"><?php echo $store['store_name'] ?></a></div> <br>
+                           <div class="storelocator-store-information">
+                               <div class="storelocator-title">
+                                   <a class="storelocator-link" href="#" title="Fashion Gallery" target="_blank"><?php echo $store['store_name'] ?></a></div> <br>
                                <?php echo $store['store_name']?><br>
                                Zip: 11106 <br>
                                State: <?php echo $store['store_city']?> <br>
@@ -218,58 +218,58 @@ if (true):
                            </div>
                        </div>
 
-                       <div class="amlocator-schedule-container" >
-                           <div class="amlocator-today" data-amlocator-js="collapse-trigger">
+                       <div class="storelocator-schedule-container" >
+                           <div class="storelocator-today" data-storelocator-js="collapse-trigger">
                                <strong>Work Time Today:</strong>
-                               <span class="amlocator-time">
+                               <span class="storelocator-time">
                                         <span>9:00 am - 7:00 pm</span>
-                                        <span class="amlocator-arrow -down"></span>
+                                        <span class="storelocator-arrow -down"></span>
                                </span>
                            </div>
 
-                           <div class="amlocator-week" data-amlocator-js="collapse-content" id="schedule1">
-                               <div class="amlocator-schedule-table container-fluid">
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Monday</span>
-                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span><br>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                           <div class="storelocator-week" data-storelocator-js="collapse-content" id="schedule1">
+                               <div class="storelocator-schedule-table container-fluid">
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Monday</span>
+                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span><br>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Tuesday</span>
-                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Tuesday</span>
+                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Wednesday</span>
-                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Wednesday</span>
+                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Thursday</span>
-                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Thursday</span>
+                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Friday</span>
-                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Friday</span>
+                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Saturday</span>
-                                       <span class="amlocator-cell -time">10:00 am - 8:00 pm</span>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Saturday</span>
+                                       <span class="storelocator-cell -time">10:00 am - 8:00 pm</span>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
-                                   <div class="amlocator-row row">
-                                       <span class="amlocator-cell -day col-sm-5">Sunday</span>
-                                       <span class="amlocator-cell -time">10:00 am - 8:00 pm</span>
-                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   <div class="storelocator-row row">
+                                       <span class="storelocator-cell -day col-sm-5">Sunday</span>
+                                       <span class="storelocator-cell -time">10:00 am - 8:00 pm</span>
+                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
                                    </div>
                                </div>
                            </div>
@@ -315,13 +315,13 @@ if (true):
                 map: map,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
-            contentString[i] ='<div class="amlocator-block blocklaong">'+
-                '<div class="amlocator-image">'+
+            contentString[i] ='<div class="storelocator-block blocklaong">'+
+                '<div class="storelocator-image">'+
                 '<img src="'+locations[i]["image"]+'" width="100%" height="100%">'+
                 '</div>'+
-                '<div class="amlocator-store-information">'+
-                '<div class="amlocator-title">'+
-                '<a class="amlocator-link" href="#" title="Fashion Gallery" target="_blank">'+
+                '<div class="storelocator-store-information">'+
+                '<div class="storelocator-title">'+
+                '<a class="storelocator-link" href="#" title="Fashion Gallery" target="_blank">'+
                 locations[i]['store_name']+
                 '</a>'+
                 '</div> '+
@@ -431,14 +431,14 @@ if (true):
                 var time_id = locations[i]["time_id"]
                 if (data_time_id === time_id ) {
                      contentBlock[i] =
-                        '<div class="amlocator-store-desc" name="leftLocation" data-mapid="amlocator-map-canvas5f339f81a2117" data-amid="1">'+
-                        '<div class="amlocator-block blocklaong" data-latitude="'+locations[i]["latitude"]+'" data-longitude="'+locations[i]["longitude"]+'" data-gmap-id="'+locations[i]["gmaps_id"]+'">'+
-                        '<div class="amlocator-image">'+
+                        '<div class="storelocator-store-desc" name="leftLocation" data-mapid="storelocator-map-canvas5f339f81a2117" data-amid="1">'+
+                        '<div class="storelocator-block blocklaong" data-latitude="'+locations[i]["latitude"]+'" data-longitude="'+locations[i]["longitude"]+'" data-gmap-id="'+locations[i]["gmaps_id"]+'">'+
+                        '<div class="storelocator-image">'+
                         '<img src="" width="100%" height="100%">'+
                         '</div>'+
-                        '<div class="amlocator-store-information">'+
-                        '<div class="amlocator-title">'+
-                        '<a class="amlocator-link" href="#" title="Fashion Gallery" target="_blank">'+
+                        '<div class="storelocator-store-information">'+
+                        '<div class="storelocator-title">'+
+                        '<a class="storelocator-link" href="#" title="Fashion Gallery" target="_blank">'+
                         locations[i]["store_name"]+
                         '</a>'+'</div>'+'<br>'+
                         locations[i]["store_city"]+'<br>'+
@@ -462,8 +462,8 @@ if (true):
 <script type="text/javascript">
     "use strict";
     require([ 'jquery', 'jquery/ui'], function($){
-        $('.amlocator-attribute-filter').click (function(){
-                $('.amlocator-hidden-filter').toggle();
+        $('.storelocator-attribute-filter').click (function(){
+                $('.storelocator-hidden-filter').toggle();
                  $('.fakeimg').height("58vh");
         })
 
@@ -488,13 +488,13 @@ if (true):
             $(this).parent().remove();
             var optionArray = $(this).data("optionArray");
             var new_arr = valueid.filter(item => item !== optionArray);
-            console.log(new_arr);
+            // console.log(new_arr);
         })
 
-        $('.amlocator-wrapper').click(function(event) {
+        $('.storelocator-wrapper').click(function(event) {
             var x = event.offsetX;
             $('.ui-slider-handle').css({"left": x + 'px'});
-            var test = document.getElementsByClassName('amlocator-wrapper')[0];
+            var test = document.getElementsByClassName('storelocator-wrapper')[0];
             var width = (test.clientWidth + 1);
             var k = x / width * 500;
             var sk = Math.ceil(k);
