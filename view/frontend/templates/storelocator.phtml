@@ -10,7 +10,7 @@ $helper = $block->googleMapsStoreHelper;
 
 <?php
 if (true):
-//    $standard_lat = $helper->getGMapStandardLatitude();
+  //  $standard_lat = $helper->getGMapStandardLatitude();
 //    $standard_long = $helper->getGMapStandardLongitude();
     $store = $block->getAllStores();
     $storelocator = json_encode($store->getData());
@@ -31,7 +31,7 @@ if (true):
 
 <div class="style-storelocator">
     <div class="container-fluid">
-        <div><h4>Store Location</h4></div>
+        <div><h2>Store Location</h2></div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="storelocator-search fakeimg" style="padding: 3%;">
@@ -128,7 +128,7 @@ if (true):
                                                 <option value="8">PayPal</option>
                                             </select><div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices">
                                                     <li class="search-field">
-                                                        <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
+                                                        <input class="chosen-search-input default input-select-payment" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
                                                     </li>
                                                 </ul>
                                                 <div class="chosen-drop">
@@ -152,7 +152,7 @@ if (true):
                                             <div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices" id="brand-search">
 
                                                     <li class="search-field">
-                                                        <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
+                                                        <input class="chosen-search-input default input-select-brand" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
                                                     </li>
                                                 </ul>
                                                 <div class="chosen-drop">
@@ -353,7 +353,7 @@ if (true):
             })(marker,i));
             contentString.push(marker);
         }
-        var block = document.getElementsByClassName("blocklaong");
+        var block = document.getElementById("fake-storelocator").getElementsByClassName("blocklaong");
         for (i=0; i<block.length; i++){
             block[i].addEventListener('click', function (){
                 google.maps.event.trigger(contentString[this.dataset.gmapId], 'click');
@@ -462,16 +462,20 @@ if (true):
 <script type="text/javascript">
     "use strict";
     require([ 'jquery', 'jquery/ui'], function($){
-        $('.storelocator-attribute-filter').click (function(){
+        var valueid = [""];
+        var new_arr = [""];
+
+
+        $('.storelocator-block .storelocator-filters-container .storelocator-attribute-filter').click (function(){
                 $('.storelocator-hidden-filter').toggle();
                  $('.fakeimg').height("58vh");
         })
 
-        $(".search-field").click(function(){
+        $(".search-field .input-select-brand").click(function(){
             $("#select-options").show();
         })
-        var valueid = [""];
-        $(".option-select").click(function (){
+
+        $("#select-options .option-select").click(function (){
             $("#select-options").hide();
             var content = $(this).text();
             var optionvalue =$(this).val();
@@ -483,15 +487,14 @@ if (true):
             $(this).off( "click");
         });
 
-        var new_arr = [""];
-        $(".search-choice-close").on('click', function(){
+
+        $(".search-choice .search-choice-close").on('click', function(){
             $(this).parent().remove();
             var optionArray = $(this).data("optionArray");
             var new_arr = valueid.filter(item => item !== optionArray);
-            // console.log(new_arr);
         })
 
-        $('.storelocator-wrapper').click(function(event) {
+        $('.storelocator-search-radius .storelocator-wrapper').click(function(event) {
             var x = event.offsetX;
             $('.ui-slider-handle').css({"left": x + 'px'});
             var test = document.getElementsByClassName('storelocator-wrapper')[0];
