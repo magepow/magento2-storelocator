@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magepow_StoreLocator::extensions" title="Store Extensions">
+                    <resource id="Magepow_StoreLocator::manage_gmaps" title="Google Map Stores Locator" sortOrder="30">
+                        <resource id="Magepow_StoreLocator::manage_stores" title="Manage Stores" sortOrder="31" />
+                        <resource id="Magepow_StoreLocator::working_time" title="Working Time" sortOrder="31" />
+
+
+                    </resource>
+
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Magepow_StoreLocator::configuration" title="Google Map Stores Locator" />
+                        </resource>
+                    </resource>
+                </resource>
+
+            </resource>
+        </resources>
+    </acl>
+</config>
+

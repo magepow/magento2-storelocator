@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <googlestorelocator>
+            <general_setting>
+                <api_key>AIzaSyACuiJvBHQVKqXf2fRWY9csv6Ld9yFoYmk</api_key>
+                <enable_page>1</enable_page>
+                <enable_customer>1</enable_customer>
+                <enable_product_page>1</enable_product_page>
+                <page_title>Available in Stores</page_title>
+                <enable_link>1</enable_link>
+                <page_title>Available in Stores</page_title>
+                <enable_toolbar>1</enable_toolbar>
+                <enable_footer>1</enable_footer>
+            </general_setting>
+
+
+            <map_customer>
+                <use_browser>1</use_browser>
+                <use_geo>1</use_geo>
+                <show_location>0</show_location>
+                <map_zoom>10</map_zoom>
+                <enable_cluter>1</enable_cluter>
+                <click_serch>0</click_serch>
+            </map_customer>
+
+
+            <store_locator_page>
+                <main_setting>
+                    <url_key>storelocator</url_key>
+                    <meta_title>Store Locator</meta_title>
+                    <meta_des>Store Locator</meta_des>
+                    <number_location>3</number_location>
+                    <description>100</description>
+                </main_setting>
+            </store_locator_page>
+
+
+        </googlestorelocator>
+    </default>
+</config>

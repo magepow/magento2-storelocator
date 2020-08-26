@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Magepow_StoreLocator::extensions"
+                title="Store Extensions" translate="title"
+                module="Magepow_StoreLocator" sortOrder="0"
+                resource="Magepow_StoreLocator::extensions"/>
+
+        <add id="Magepow_StoreLocator::manage_gmaps"
+             title="Google Map Stores Locator" translate="title"
+             module="Magepow_StoreLocator" sortOrder="1"
+             parent="Magepow_StoreLocator::extensions"
+             resource="Magepow_StoreLocator::manage_gmaps"/>
+
+        <add id="Magepow_StoreLocator::manage_stores"
+             title="Manage Stores"
+             module="Magepow_StoreLocator" sortOrder="2"
+             parent="Magepow_StoreLocator::manage_gmaps"
+                action="googlestorelocator/storelocator/"
+             resource="Magepow_StoreLocator::manage_stores" />
+
+        <add id="Magepow_StoreLocator::working_time" title="Working Time"
+             translate="title" module="Magepow_StoreLocator"
+             sortOrder="10" resource="Magepow_StoreLocator::working_time"
+             parent="Magepow_StoreLocator::extensions"
+             action="googlestorelocator/workingtime/"/>
+
+        <add id="Magepow_StoreLocator::configuration"
+             title="Configurations"
+             module="Magepow_StoreLocator" sortOrder="4"
+             parent="Magepow_StoreLocator::manage_gmaps"
+             action="adminhtml/system_config/edit/section/googlestorelocator"
+             resource="Magepow_StoreLocator::configuration" />
+
+    </menu>
+</config>

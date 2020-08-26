@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="storelocator" translate="label" sortOrder="1">
+            <label>Store Locator</label>
+        </tab>
+        <section id="googlestorelocator" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Google Map Stores Locator</label>
+            <tab>storelocator</tab>
+            <resource>Magepow_StoreLocator::configuration</resource>
+            <group id="general_setting" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+
+                <field id="api_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>API Key</label>
+                    <comment>Please use this page to get key</comment>
+                </field>
+
+                <field id="enable_page" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Enable Location Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="enable_customer" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Enable Customers Reviews for Location</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="enable_product_page" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Show Store Locator's Link on Product Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="page_title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>'Available in Stores' Link Text	</label>
+                    <comment>This text will display on the frontend.</comment>
+                </field>
+
+                <field id="enable_link" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>'Available in Stores' Link Text</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="page_title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Title</label>
+                    <comment>This text will display on the frontend.</comment>
+                </field>
+                <field id="enable_toolbar" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Add Store Locator Link to the Toolbar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_footer" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Add Store Locator Link to the Footer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+
+            <group id="map_customer" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                <label>Map and Customer's Geolocation</label>
+
+                <field id="use_browser" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Use Browser Location</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_geo" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Use Geo IP</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_location" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Show Nearest Location by Default</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="map_zoom" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Map Zoom</label>
+                    <comment>The initial resolution at which a map will be displayed.</comment>
+                </field>
+
+                <field id="enable_cluter" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Enable Clustering</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="click_serch" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Autosuggestions Click Search</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+
+
+            <group id="store_locator_page" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Store Locator Page</label>
+                <group id="main_setting" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Main Setting</label>
+                    <field id="url_key" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>URL Key</label>
+                        <comment> </comment>
+                    </field>
+                    <field id="meta_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Meta Title</label>
+                        <comment> </comment>
+                    </field>
+                    <field id="meta_des" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Meta Description	</label>
+                        <comment> </comment>
+                    </field>
+                    <field id="number_location" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Number of Locations on a Page</label>
+                        <comment> </comment>
+                    </field>
+                    <field id="description" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Description Length Limit</label>
+                        <comment> </comment>
+                    </field>
+                    <field id="address_aures" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Address Autosuggestion Restrictions</label>
+                        <source_model>Magepow\StoreLocator\Model\StoreLocator\Source\Config\Config</source_model>
+                        <comment>Please use the field if you need to show only specific countries in the list of offered addresses for the 'Current Location' field on the Store locator's page. Please mind that Google Service allows to choose no more than 5 countries (you can find more information here). Or leave the field blank to show all possible countries in the list of offered addresses.</comment>
+                    </field>
+                </group>
+
+            </group>
+        </section>
+    </system>
+</config>
+
+

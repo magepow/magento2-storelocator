@@ -1,0 +1,513 @@
+<?php
+/**
+ * @var \Magepow\StoreLocator\Block\StoreLocator $block
+ */
+$helper = $block->googleMapsStoreHelper;
+
+?>
+
+
+
+<?php
+if (true):
+//    $standard_lat = $helper->getGMapStandardLatitude();
+//    $standard_long = $helper->getGMapStandardLongitude();
+    $store = $block->getAllStores();
+    $storelocator = json_encode($store->getData());
+    $timer = $block->getAllTime();
+    $workingtime=  json_encode($timer->getData());
+
+
+
+    foreach ($store as $key=> $store){
+//            $storelocator = json_encode($store->getData());
+            $latitude = $store->getLatitude();
+            $longitude = $store->getLongitude();
+    }
+
+
+?>
+
+
+<div class="style-storelocator">
+    <div class="container-fluid">
+        <div><h4>Store Location</h4></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="storelocator-search fakeimg" style="padding: 3%;">
+                    <div class="map-search">
+
+                            <input type="text" class="search-maps" id="search-maps" placeholder="search maps">
+
+
+<!--  ================================   input search------------------->
+
+
+                    </div>
+
+                    <div class="amlocator-block -search amlocator-search-radius">
+                        <label class="amlocator-title" id="range_radius" for="radius">
+                            Search Radius                    </label>
+                        <label>, km</label>
+                        <div class="amlocator-wrapper">
+                            <div class="amlocator-range-slider" data-amlocator-js="range-slider">
+                                <div class="amlocator-handle ui-slider-handle">
+                                    <div class="amlocator-tooltip">
+                                        <span data-amlocator-js="radius-value" class="amount"></span>
+                                        <span data-amlocator-js="radius-measurment">
+                                        km                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="radius" data-amlocator-js="radius-select" value="500" min="0" max="500">
+                        </div>
+                        <div>
+                            <button style="width: 100%;margin: 5px 0px;">Locate Nearby</button>
+                        </div>
+                    </div>
+
+
+                    <div class="amlocator-block -filter" >
+                        <div class="amlocator-filters-container">
+                            <div class="amlocator-title amlocator-attribute-filter" data-amlocator-js="filters-title" >
+                                <span>Filter</span>
+                                <span class="amlocator-arrow" style="float: right;">v</span>
+                            </div>
+                            <div class="amlocator-content amlocator-hidden-filter" data-amlocator-js="filters-container" >
+                                <form class="attributes" action="#" data-amlocator-js="attributes-form">
+                                    <div class="amlocator-attribute-wrapper">
+                                        <div class="amlocator-label">Parking Availability</div>
+                                        <div class="amlocator-input">
+                                            <select name="1" class="amlocator-select">
+                                                <option value="" selected="">Please Select</option>
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="amlocator-attribute-wrapper">
+                                        <div class="amlocator-label">ATM</div>
+                                        <div class="amlocator-input">
+                                            <select name="2" class="amlocator-select">
+                                                <option value="" selected="">Please Select</option>
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="amlocator-attribute-wrapper">
+                                        <div class="amlocator-label">New Arrivals</div>
+                                        <div class="amlocator-input">
+                                            <select name="3" class="amlocator-select storelocator_select_time" id="timer-name">
+                                                <option value="" selected="">Please Select</option>
+                                                <?php foreach ($timer as $time):?>
+                                                    <option value="<?php echo $time['time_id'] ?>"><?php echo $time['name'] ?></option>
+                                                <?php endforeach;?>
+
+
+<!--                                                    <option value="1">Monday</option>-->
+<!--                                                    <option value="2">Tuesday</option>-->
+<!--                                                    <option value="3">Wednesday</option>-->
+<!--                                                    <option value="4">Thursday</option>-->
+<!--                                                    <option value="5">Friday</option>-->
+<!--                                                    <option value="6">Saturday</option>-->
+<!--                                                    <option value="7">Sunday</option>-->
+
+
+
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="amlocator-attribute-wrapper">
+                                        <div class="amlocator-label">Payment Methods</div>
+                                        <div class="amlocator-input">
+                                            <select name="4" class="amlocator-select" multiple="multiple" data-amlocator-js="multiple-select" style="display: none;">
+                                                <option value="6">Cash</option>
+                                                <option value="7">Card</option>
+                                                <option value="8">PayPal</option>
+                                            </select><div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices">
+                                                    <li class="search-field">
+                                                        <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
+                                                    </li>
+                                                </ul>
+                                                <div class="chosen-drop">
+                                                    <ul class="chosen-results"></ul>
+                                                </div></div>
+                                        </div>
+                                    </div>
+                                    <div class="amlocator-attribute-wrapper">
+                                        <div class="amlocator-label">No-Contact Delivery</div>
+                                        <div class="amlocator-input">
+                                            <select name="9" class="amlocator-select">
+                                                <option value="" selected="">Please Select</option>
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="amlocator-attribute-wrapper">
+                                        <div class="amlocator-label">Brands</div>
+                                        <div class="amlocator-input">
+                                            <div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices" id="brand-search">
+
+                                                    <li class="search-field">
+                                                        <input class="chosen-search-input default" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
+                                                    </li>
+                                                </ul>
+                                                <div class="chosen-drop">
+                                                    <ul class="chosen-results">
+                                                    </ul>
+                                                </div></div>
+                                            <select name="8" class="amlocator-select select-options" id="select-options" multiple="multiple" data-amlocator-js="multiple-select" style="display: none;">
+                                                <option value="0" class="option-select">
+                                                    Adidas
+                                                </option>
+                                                <option value="1" class="option-select">
+                                                    Reebok
+                                                </option>
+                                                <option value="2" class="option-select">
+                                                    Mango
+                                                </option>
+                                                <option value="3" class="option-select">
+                                                    H&amp;M
+                                                </option>
+                                                <option value="4" class="option-select">
+                                                    Collins
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="amlocator-actions">
+                                    <button class="amlocator-button amlocator-filter-attribute" id="filter-bt" title="Filter">Filter</button>
+                                    <span class="amlocator-clear" title="Reset" data-amlocator-js="clear-filters">Reset</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="fake-storelocator" id="fake-storelocator">
+
+                   <!--  -----------------------------------Start foreach and if----------------------->
+
+                   <?php foreach ($block->getAllStores() as $key=>$store):?>
+
+                   <?php if ($store['is_active']==1):?>
+
+                   <div class="amlocator-store-desc" name="leftLocation" data-mapid="" data-amid="1">
+
+
+
+
+                           <div class="amlocator-block blocklaong" data-latitude="<?php echo $store['latitude'] ?>" data-longitude="<?php echo $store['longitude'] ?>" data-gmap-id="<?php echo $store['gmaps_id'] ?>">
+                           <div class="amlocator-image">
+                               <img src="<?php echo $this->getData('mediaURL') . $store['image']; ?>" width="100%" height="100%">
+                           </div>
+                           <div class="amlocator-store-information">
+                               <div class="amlocator-title">
+                                   <a class="amlocator-link" href="#" title="Fashion Gallery" target="_blank"><?php echo $store['store_name'] ?></a></div> <br>
+                               <?php echo $store['store_name']?><br>
+                               Zip: 11106 <br>
+                               State: <?php echo $store['store_city']?> <br>
+                               Address: <?php echo $store['address']?> <br>
+                               <div style="display: none;" class="amasty_distance" id="amasty_distance_1">Distance:<span class="amasty_distance_number"></span>
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class="amlocator-schedule-container" >
+                           <div class="amlocator-today" data-amlocator-js="collapse-trigger">
+                               <strong>Work Time Today:</strong>
+                               <span class="amlocator-time">
+                                        <span>9:00 am - 7:00 pm</span>
+                                        <span class="amlocator-arrow -down"></span>
+                               </span>
+                           </div>
+
+                           <div class="amlocator-week" data-amlocator-js="collapse-content" id="schedule1">
+                               <div class="amlocator-schedule-table container-fluid">
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Monday</span>
+                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span><br>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Tuesday</span>
+                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Wednesday</span>
+                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Thursday</span>
+                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Friday</span>
+                                       <span class="amlocator-cell -time">9:00 am - 7:00 pm</span>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Saturday</span>
+                                       <span class="amlocator-cell -time">10:00 am - 8:00 pm</span>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                                   <div class="amlocator-row row">
+                                       <span class="amlocator-cell -day col-sm-5">Sunday</span>
+                                       <span class="amlocator-cell -time">10:00 am - 8:00 pm</span>
+                                       <span class="amlocator-cell -day col-sm-5">Break Time</span>
+                                       <span class="amlocator-cell -time">2:15 pm - 3:15 pm</span>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+
+                   </div>
+
+
+                       <?php endif;?>
+                   <?php endforeach;?>
+               </div>
+                <hr class="d-sm-none">
+                </div>
+                <div class="col-sm-8">
+                <div id="fakeimg-googlestore"></div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    "use strict";
+    var locations = <?php echo $storelocator ?>;
+
+    function initMap(sel) {
+
+        var map = new google.maps.Map(document.getElementById('fakeimg-googlestore'), {
+            zoom: 6,
+            center: new google.maps.LatLng(<?php echo $latitude ?>, <?php echo $longitude?>)
+        });
+
+
+        var i;
+        var contentString = new Array("");
+
+        var infowindow = new google.maps.InfoWindow();
+        for (i = 0; i < locations.length; i++) {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i]['latitude'], locations[i]['longitude']),
+                map: map,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            contentString[i] ='<div class="amlocator-block blocklaong">'+
+                '<div class="amlocator-image">'+
+                '<img src="'+locations[i]["image"]+'" width="100%" height="100%">'+
+                '</div>'+
+                '<div class="amlocator-store-information">'+
+                '<div class="amlocator-title">'+
+                '<a class="amlocator-link" href="#" title="Fashion Gallery" target="_blank">'+
+                locations[i]['store_name']+
+                '</a>'+
+                '</div> '+
+                '<br>'+
+                "sakdjakda"+
+                '<br>'+
+                'Zip: 11106'+
+                '<br>'+
+                "State:"+
+                locations[i]['store_city']+
+                '<br>'+
+                "Address:" +
+                locations[i]['address']+
+                '<br>'+
+                '<div style="display: none;" class="amasty_distance" id="amasty_distance_1">'+
+                "Distance:" +
+                locations[i]['country']+
+                '<span class="amasty_distance_number">'+
+                '</span>'+
+                '</div>'+
+                '</div>'+
+                '</div>';
+            google.maps.event.addListener(marker, 'click', (function(marker,i) {
+                return function() {
+                    var content = contentString;
+                    infowindow.setContent(contentString[i]);
+                    infowindow.open(map, marker);
+                }
+            })(marker,i));
+            contentString.push(marker);
+        }
+        var block = document.getElementsByClassName("blocklaong");
+        for (i=0; i<block.length; i++){
+            block[i].addEventListener('click', function (){
+                google.maps.event.trigger(contentString[this.dataset.gmapId], 'click');
+            })
+        }
+
+        const mapsearch = document.getElementsByClassName('map-search');
+        const input = document.getElementById("search-maps");
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapsearch);
+        const searchBox = new google.maps.places.SearchBox(input);
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+        });
+        let markers = [];
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+
+            markers.forEach(marker => {
+                marker.setMap(null);
+            });
+            markers = [];
+
+            const bounds = new google.maps.LatLngBounds();
+            places.forEach(place => {
+                if (!place.geometry) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    })
+                );
+                if (place.geometry.viewport) {
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+
+    }
+    function SearchList(){
+
+        document.getElementById('timer-name').addEventListener('click', function(){
+            var option_value = this.value;
+            console.log(option_value);
+            var filter = document.getElementById('filter-bt');
+            var att = document.createAttribute("data-time-id");
+            att.value = option_value;
+            filter.setAttributeNode(att);
+        });
+
+        document.getElementById('filter-bt').addEventListener('click', function (){
+            var data_time_id = this.getAttribute("data-time-id");
+            var contentBlock = new Array("");
+            var fake_storelocator = document.getElementById('fake-storelocator');
+            for (var i = 0; i < locations.length; i++) {
+                var time_id = locations[i]["time_id"]
+                if (data_time_id === time_id ) {
+                     contentBlock[i] =
+                        '<div class="amlocator-store-desc" name="leftLocation" data-mapid="amlocator-map-canvas5f339f81a2117" data-amid="1">'+
+                        '<div class="amlocator-block blocklaong" data-latitude="'+locations[i]["latitude"]+'" data-longitude="'+locations[i]["longitude"]+'" data-gmap-id="'+locations[i]["gmaps_id"]+'">'+
+                        '<div class="amlocator-image">'+
+                        '<img src="" width="100%" height="100%">'+
+                        '</div>'+
+                        '<div class="amlocator-store-information">'+
+                        '<div class="amlocator-title">'+
+                        '<a class="amlocator-link" href="#" title="Fashion Gallery" target="_blank">'+
+                        locations[i]["store_name"]+
+                        '</a>'+'</div>'+'<br>'+
+                        locations[i]["store_city"]+'<br>'+
+                        " Zip: 11106 "+"<br>"+
+                        " State:"+'<br>'+
+                        " Address:"+locations[i]["address"] +'<br>'+
+                        '<div style="display: none;" class="amasty_distance" id="amasty_distance_1">'+"Distance:" +
+                         '<span class="amasty_distance_number">'+'</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+                    fake_storelocator.innerHTML = contentBlock;
+                }
+            }
+        });
+
+    }SearchList();
+
+</script>
+
+<script type="text/javascript">
+    "use strict";
+    require([ 'jquery', 'jquery/ui'], function($){
+        $('.amlocator-attribute-filter').click (function(){
+                $('.amlocator-hidden-filter').toggle();
+                 $('.fakeimg').height("58vh");
+        })
+
+        $(".search-field").click(function(){
+            $("#select-options").show();
+        })
+        var valueid = [""];
+        $(".option-select").click(function (){
+            $("#select-options").hide();
+            var content = $(this).text();
+            var optionvalue =$(this).val();
+            var li_search = '<li class="search-choice">'+'<span>'+content+'</span>'+
+                '<a  class="search-choice-close" data-option-array="'+optionvalue+'">'+"x"+'</a>'+'</li>';
+            $('#brand-search').append(li_search);
+            valueid.push(optionvalue);
+            $(this).css({"opacity":"0.4"});
+            $(this).off( "click");
+        });
+
+        var new_arr = [""];
+        $(".search-choice-close").on('click', function(){
+            $(this).parent().remove();
+            var optionArray = $(this).data("optionArray");
+            var new_arr = valueid.filter(item => item !== optionArray);
+            console.log(new_arr);
+        })
+
+        $('.amlocator-wrapper').click(function(event) {
+            var x = event.offsetX;
+            $('.ui-slider-handle').css({"left": x + 'px'});
+            var test = document.getElementsByClassName('amlocator-wrapper')[0];
+            var width = (test.clientWidth + 1);
+            var k = x / width * 500;
+            var sk = Math.ceil(k);
+            $('.amount').html(sk);
+        })
+
+    });
+
+
+</script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&v=weekly"></script>
+<!--AIzaSyACuiJvBHQVKqXf2fRWY9csv6Ld9yFoYmk-->
+
+<!--AIzaSyAU1ZZ8SzyYkg-y43dVmEuLZzVUWOLpr3E-->
+<?php endif; ?>

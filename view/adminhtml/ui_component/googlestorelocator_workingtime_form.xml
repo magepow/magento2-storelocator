@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">googlestorelocator_workingtime_form.googlestorelocator_workingtime_form_data_source</item>
+            <item name="deps" xsi:type="string">googlestorelocator_workingtime_form.googlestorelocator_workingtime_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Store Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">googlestorelocator_workingtime_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Magepow\StoreLocator\Block\Adminhtml\WorkingTime\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Magepow\StoreLocator\Block\Adminhtml\WorkingTime\Edit\DeleteButton</item>
+            <item name="reset" xsi:type="string">Magepow\StoreLocator\Block\Adminhtml\WorkingTime\Edit\ResetButton</item>
+            <item name="save" xsi:type="string">Magepow\StoreLocator\Block\Adminhtml\WorkingTime\Edit\SaveButton</item>
+            <item name="save_and_continue" xsi:type="string">Magepow\StoreLocator\Block\Adminhtml\WorkingTime\Edit\SaveAndContinueButton</item>
+        </item>
+    </argument>
+    <dataSource name="googlestorelocator_workingtime_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magepow\StoreLocator\Model\WorkingTime\DataProvider</argument>
+            <argument name="name" xsi:type="string">googlestorelocator_workingtime_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">time_id</argument>
+            <argument name="requestFieldName" xsi:type="string">time_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="googlestorelocator/workingtime/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+
+    <fieldset name="googlestorelocator_workingtime">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Working Time</item>
+                <item name="sortOrder" xsi:type="number">19</item>
+            </item>
+        </argument>
+
+
+
+
+        <field name="time_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="dataScope" xsi:type="string">time_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Location Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="sortOrder" xsi:type="number">19</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="Monday">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Monday Time</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                    Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="dataScope" xsi:type="string">Monday</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="Tuesday">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Tuesday Time</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                    Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="sortOrder" xsi:type="number">21</item>
+                    <item name="dataScope" xsi:type="string">Tuesday</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="Wednesday">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Wednesday Time</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                    Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="sortOrder" xsi:type="number">22</item>
+                    <item name="dataScope" xsi:type="string">Wednesday</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="Thursday">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Thursday Time</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                    Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="sortOrder" xsi:type="number">23</item>
+                    <item name="dataScope" xsi:type="string">Thursday</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="Friday">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataType" xsi:type="string">text</item>
+                <item name="label" xsi:type="string" translate="true">Friday Time</item>
+                <item name="formElement" xsi:type="string">input</item>
+                <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                    Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                <item name="source" xsi:type="string">working_time</item>
+                <item name="sortOrder" xsi:type="number">24</item>
+                <item name="dataScope" xsi:type="string">Friday</item>
+                <item name="validation" xsi:type="array">
+                    <item name="required-entry" xsi:type="boolean">true</item>
+                </item>
+            </item>
+        </argument>
+    </field>
+        <field name="saturday">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataType" xsi:type="string">text</item>
+                <item name="label" xsi:type="string" translate="true">Saturday Time</item>
+                <item name="formElement" xsi:type="string">input</item>
+                <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                    Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                <item name="source" xsi:type="string">working_time</item>
+                <item name="sortOrder" xsi:type="number">25</item>
+                <item name="dataScope" xsi:type="string">saturday</item>
+                <item name="validation" xsi:type="array">
+                    <item name="required-entry" xsi:type="boolean">true</item>
+                </item>
+            </item>
+        </argument>
+    </field>
+        <field name="sunday">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Sunday Time</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="notice" xsi:type="string" translate="true">You need to enter your working time and time off here. For example
+                        Morning: 8 am-12am Afternoon: 13pm - 17pm</item>
+                    <item name="source" xsi:type="string">working_time</item>
+                    <item name="sortOrder" xsi:type="number">26</item>
+                    <item name="dataScope" xsi:type="string">sunday</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+<!--        <field name="sunday">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="options" xsi:type="object">Magepow\StoreLocator\Ui\Component\Listing\Column\Second-->
+<!--                </item>-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="dataType" xsi:type="string">text</item>-->
+<!--                    <item name="label" xsi:type="string" translate="true">Group Time</item>-->
+<!--                    <item name="formElement" xsi:type="string">select</item>-->
+<!--                    <item name="source" xsi:type="string">storelocator</item>-->
+<!--                    <item name="dataScope" xsi:type="string">sunday</item>-->
+<!--                    <item name="validation" xsi:type="array">-->
+<!--                        <item name="required-entry" xsi:type="boolean">true</item>-->
+<!--                    </item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </field>-->
+
+
+    </fieldset>
+
+</form>
