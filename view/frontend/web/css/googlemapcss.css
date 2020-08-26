@@ -17,7 +17,7 @@
     width: 155px;
 }
 
-.amlocator-attribute-wrapper .chosen-container .chosen-choices {
+.storelocator-attribute-wrapper .chosen-container .chosen-choices {
     height: 40px;
     min-height: 35px;
     overflow-x: hidden;
@@ -67,23 +67,23 @@
     position: absolute;
 }
 
-.amlocator-filters-container{
+.storelocator-filters-container{
     background: #e7e7e7;
     margin-top: 10px;
 }
-.amlocator-attribute-wrapper{
+.storelocator-attribute-wrapper{
     height: 8vh;
     padding: 5px 10px;
 
 }
 
-.amlocator-attribute-wrapper:nth-of-type(2n+0){
+.storelocator-attribute-wrapper:nth-of-type(2n+0){
     background: #e7e7e7;
 }
-.amlocator-attribute-wrapper:nth-of-type(2n+1){
+.storelocator-attribute-wrapper:nth-of-type(2n+1){
     background: #f8f8f8;
 }
-.amlocator-label{
+.storelocator-label{
     box-sizing: border-box;
     width: 40%;
     padding-right: 5px;
@@ -92,14 +92,14 @@
 
 }
 
-.amlocator-hidden-filter{
+.storelocator-hidden-filter{
     display: none;
 }
 .chosen-choices{
     list-style: none;
     margin-left: -4em;
 }
-.amlocator-input {
+.storelocator-input {
     -webkit-flex-grow: 1;
     flex-grow: 1;
     width: 60%;
@@ -112,14 +112,14 @@
 /*}*/
 
 
-.amlocator-title{
+.storelocator-title{
     padding: 10px 7px;
 }
-.amlocator-button,.amlocator-clear {
+.storelocator-button,.storelocator-clear {
     float: right;
     margin: 0px 10px;
 }
-.amlocator-actions{
+.storelocator-actions{
     height: 5vh;
 }
 .option-select{
@@ -132,7 +132,7 @@
 
 /*----------------------------------------------------------------*/
 
-.amlocator-store-desc {
+.storelocator-store-desc {
     display: block;
     margin-bottom: 15px;
     font-size: 14px;
@@ -140,14 +140,14 @@
     cursor: pointer;
 }
 
-.amlocator-store-desc .amlocator-block {
+.storelocator-store-desc .storelocator-block {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin: 15px;
 }
 
-.amlocator-store-desc .amlocator-image {
+.storelocator-store-desc .storelocator-image {
     width: 150px;
     min-width: 150px;
     height: 150px;
@@ -155,7 +155,7 @@
     background-position: center;
     background-size: cover;
 }
-.amlocator-schedule-table .amlocator-row {
+.storelocator-schedule-table .storelocator-row {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -163,43 +163,43 @@
     flex-wrap: wrap;
     margin-bottom: 15px;
 }
-.amlocator-schedule-table .amlocator-cell {
+.storelocator-schedule-table .storelocator-cell {
     width: 50%;
     box-sizing: border-box;
 
 }
-.amlocator-schedule-table .amlocator-cell .-day {
+.storelocator-schedule-table .storelocator-cell .-day {
     padding-left: 15px;
 
 }
-.amlocator-schedule-table .amlocator-cell .-time {
+.storelocator-schedule-table .storelocator-cell .-time {
     white-space: nowrap;
     text-align: right;
     padding-right: 8%;
 }
-.amlocator-today{
+.storelocator-today{
     height: 30px;
     padding: 5px 1em;
     background: #e7e7e7;
 }
-/*.amlocator-schedule-table{*/
+/*.storelocator-schedule-table{*/
 /*    padding-bottom: 10px;*/
 /*    */
 /*}*/
 
-.amlocator-week{
+.storelocator-week{
     display: none;
 }
 /*----------------------------------------*/
-.amlocator-search-container .amlocator-title {
+.storelocator-search-container .storelocator-title {
     display: inline-block;
     margin-bottom: 5px;
 }
-.amlocator-search-container .amlocator-block {
+.storelocator-search-container .storelocator-block {
     width: 100%;
     margin-bottom: 15px;
 }
-.amlocator-search-radius .amlocator-wrapper {
+.storelocator-search-radius .storelocator-wrapper {
     position: relative;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -213,14 +213,14 @@
     -ms-align-items: flex-end;
     align-items: flex-end;
 }
-.amlocator-range-slider {
+.storelocator-range-slider {
     width: 100%;
     height: 10px;
     background: #deedf8;
     border-radius: 10px;
     cursor: pointer;
 }
-.amlocator-range-slider .amlocator-handle {
+.storelocator-range-slider .storelocator-handle {
     position: absolute;
     top: 50%;
     width: 14px;
@@ -233,7 +233,7 @@
     transform: translateY(-50%);
     cursor: pointer;
 }
-.amlocator-range-slider .amlocator-tooltip {
+.storelocator-range-slider .storelocator-tooltip {
     position: absolute;
     top: -7px;
     left: 50%;
@@ -245,7 +245,7 @@
     border-radius: 2px;
     transform: translate(-50%, -100%);
 }
-.amlocator-range-slider .amlocator-tooltip:after {
+.storelocator-range-slider .storelocator-tooltip:after {
     content: "";
     position: absolute;
     bottom: 0;
