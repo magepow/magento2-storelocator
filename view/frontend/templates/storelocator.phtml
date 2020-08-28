@@ -1,34 +1,28 @@
 <?php
 /**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
  * @var \Magepow\StoreLocator\Block\StoreLocator $block
  */
-$helper = $block->googleMapsStoreHelper;
-
 ?>
-
-
-
 <?php
-if (true):
-  //  $standard_lat = $helper->getGMapStandardLatitude();
-//    $standard_long = $helper->getGMapStandardLongitude();
-    $store = $block->getAllStores();
-    $storelocator = json_encode($store->getData());
-    $timer = $block->getAllTime();
-    $workingtime=  json_encode($timer->getData());
-
-
-
-    foreach ($store as $key=> $store){
-//            $storelocator = json_encode($store->getData());
-            $latitude = $store->getLatitude();
-            $longitude = $store->getLongitude();
-    }
-
-
+$helper         = $this->helper('Magepow\StoreLocator\Helper\Data');
+$isEnabled      = $helper->getConfigModule('general/enabled');
+$page_title     = $helper->getConfigModule('general/page_title');
+$identifier     = $helper->getConfigModule('general/identifier');
+$descripttion   = $helper->getConfigModule('general/meta_description');
 ?>
-
-
+<?php
+     $store = $block->getAllStores();/** table database google_store*/ $storelocator = json_encode($store->getData());
+     foreach ($store as $store){$latitude = $store['latitude']; $longitude = $store['longitude'];}
+    $timer = $block->getAllTime();/** table database working_time*/ $workingtime=  json_encode($timer->getData());
+?>
 <div class="style-storelocator">
     <div class="container-fluid">
         <div><h2>Store Location</h2></div>
@@ -36,42 +30,29 @@ if (true):
             <div class="col-sm-4">
                 <div class="storelocator-search fakeimg" style="padding: 3%;">
                     <div class="map-search">
-
                             <input type="text" class="search-maps" id="search-maps" placeholder="search maps">
-
-
-<!--  ================================   input search------------------->
-
-
                     </div>
 
                     <div class="storelocator-block -search storelocator-search-radius">
-                        <label class="storelocator-title" id="range_radius" for="radius">
-                            Search Radius                    </label>
+                        <label class="storelocator-title" id="range_radius" for="radius">Search Radius</label>
                         <label>, km</label>
                         <div class="storelocator-wrapper">
                             <div class="storelocator-range-slider" data-storelocator-js="range-slider">
                                 <div class="storelocator-handle ui-slider-handle">
                                     <div class="storelocator-tooltip">
                                         <span data-storelocator-js="radius-value" class="amount"></span>
-                                        <span data-storelocator-js="radius-measurment">
-                                        km                                    </span>
+                                        <span data-storelocator-js="radius-measurment">km</span>
                                     </div>
                                 </div>
                             </div>
                             <input type="hidden" name="radius" data-storelocator-js="radius-select" value="500" min="0" max="500">
                         </div>
-                        <div>
-                            <button style="width: 100%;margin: 5px 0px;">Locate Nearby</button>
-                        </div>
+                        <div><button style="width: 100%;margin: 5px 0px;">Locate Nearby</button></div>
                     </div>
-
-
                     <div class="storelocator-block -filter" >
                         <div class="storelocator-filters-container">
                             <div class="storelocator-title storelocator-attribute-filter" data-storelocator-js="filters-title" >
-                                <span>Filter</span>
-                                <span class="storelocator-arrow" style="float: right;">v</span>
+                                <span>Filter</span><span class="storelocator-arrow" style="float: right;">v</span>
                             </div>
                             <div class="storelocator-content storelocator-hidden-filter" data-storelocator-js="filters-container" >
                                 <form class="attributes" action="#" data-storelocator-js="attributes-form">
@@ -103,19 +84,6 @@ if (true):
                                                 <?php foreach ($timer as $time):?>
                                                     <option value="<?php echo $time['time_id'] ?>"><?php echo $time['name'] ?></option>
                                                 <?php endforeach;?>
-
-
-<!--                                                    <option value="1">Monday</option>-->
-<!--                                                    <option value="2">Tuesday</option>-->
-<!--                                                    <option value="3">Wednesday</option>-->
-<!--                                                    <option value="4">Thursday</option>-->
-<!--                                                    <option value="5">Friday</option>-->
-<!--                                                    <option value="6">Saturday</option>-->
-<!--                                                    <option value="7">Sunday</option>-->
-
-
-
-
                                             </select>
                                         </div>
                                     </div>
@@ -126,7 +94,8 @@ if (true):
                                                 <option value="6">Cash</option>
                                                 <option value="7">Card</option>
                                                 <option value="8">PayPal</option>
-                                            </select><div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices">
+                                            </select><div class="chosen-container chosen-container-multi" title="" style="width: 0px;">
+                                                <ul class="chosen-choices">
                                                     <li class="search-field">
                                                         <input class="chosen-search-input default input-select-payment" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
                                                     </li>
@@ -149,8 +118,12 @@ if (true):
                                     <div class="storelocator-attribute-wrapper">
                                         <div class="storelocator-label">Brands</div>
                                         <div class="storelocator-input">
-                                            <div class="chosen-container chosen-container-multi" title="" style="width: 0px;"><ul class="chosen-choices" id="brand-search">
-
+                                            <div class="chosen-container chosen-container-multi" title="" style="width: 0px;">
+                                                <ul class="chosen-choices" id="brand-search">
+                                                    <li class="search-choise search-choise-input">
+                                                    <span>A</span>
+                                                        <a class="search-choice-close" data-option-array-index="0">x</a></li>
+                                                    </li>
                                                     <li class="search-field">
                                                         <input class="chosen-search-input default input-select-brand" type="text" autocomplete="off" value="Select Some Options" style="width: 157px;">
                                                     </li>
@@ -160,22 +133,11 @@ if (true):
                                                     </ul>
                                                 </div></div>
                                             <select name="8" class="storelocator-select select-options" id="select-options" multiple="multiple" data-storelocator-js="multiple-select" style="display: none;">
-                                                <option value="0" class="option-select">
-                                                    Adidas
-                                                </option>
-                                                <option value="1" class="option-select">
-                                                    Reebok
-                                                </option>
-                                                <option value="2" class="option-select">
-                                                    Mango
-                                                </option>
-                                                <option value="3" class="option-select">
-                                                    H&amp;M
-                                                </option>
-                                                <option value="4" class="option-select">
-                                                    Collins
-                                                </option>
-
+                                                <option value="0" class="option-select">Adidas</option>
+                                                <option value="1" class="option-select">Reebok</option>
+                                                <option value="2" class="option-select">Mango</option>
+                                                <option value="3" class="option-select">H&amp;M</option>
+                                                <option value="4" class="option-select">Collins</option>
                                             </select>
                                         </div>
                                     </div>
@@ -183,25 +145,15 @@ if (true):
                                 <div class="storelocator-actions">
                                     <button class="storelocator-button storelocator-filter-attribute" id="filter-bt" title="Filter">Filter</button>
                                     <span class="storelocator-clear" title="Reset" data-storelocator-js="clear-filters">Reset</span>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                <div class="fake-storelocator" id="fake-storelocator">
-
-                   <!--  -----------------------------------Start foreach and if----------------------->
-
                    <?php foreach ($block->getAllStores() as $key=>$store):?>
-
                    <?php if ($store['is_active']==1):?>
-
                    <div class="storelocator-store-desc" name="leftLocation" data-mapid="" data-amid="1">
-
-
-
-
                            <div class="storelocator-block blocklaong" data-latitude="<?php echo $store['latitude'] ?>" data-longitude="<?php echo $store['longitude'] ?>" data-gmap-id="<?php echo $store['gmaps_id'] ?>">
                            <div class="storelocator-image">
                                <img src="<?php echo $this->getData('mediaURL') . $store['image']; ?>" width="100%" height="100%">
@@ -210,15 +162,15 @@ if (true):
                                <div class="storelocator-title">
                                    <a class="storelocator-link" href="#" title="Fashion Gallery" target="_blank"><?php echo $store['store_name'] ?></a></div> <br>
                                <?php echo $store['store_name']?><br>
-                               Zip: 11106 <br>
-                               State: <?php echo $store['store_city']?> <br>
+                               Country: <?php  echo $store["country"]?> <br>
+                               City: <?php echo $store['store_city']?> <br>
                                Address: <?php echo $store['address']?> <br>
                                <div style="display: none;" class="amasty_distance" id="amasty_distance_1">Distance:<span class="amasty_distance_number"></span>
                                </div>
                            </div>
                        </div>
 
-                       <div class="storelocator-schedule-container" >
+                           <div class="storelocator-schedule-container" >
                            <div class="storelocator-today" data-storelocator-js="collapse-trigger">
                                <strong>Work Time Today:</strong>
                                <span class="storelocator-time">
@@ -227,58 +179,8 @@ if (true):
                                </span>
                            </div>
 
-                           <div class="storelocator-week" data-storelocator-js="collapse-content" id="schedule1">
-                               <div class="storelocator-schedule-table container-fluid">
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Monday</span>
-                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span><br>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Tuesday</span>
-                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Wednesday</span>
-                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Thursday</span>
-                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Friday</span>
-                                       <span class="storelocator-cell -time">9:00 am - 7:00 pm</span>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Saturday</span>
-                                       <span class="storelocator-cell -time">10:00 am - 8:00 pm</span>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                                   <div class="storelocator-row row">
-                                       <span class="storelocator-cell -day col-sm-5">Sunday</span>
-                                       <span class="storelocator-cell -time">10:00 am - 8:00 pm</span>
-                                       <span class="storelocator-cell -day col-sm-5">Break Time</span>
-                                       <span class="storelocator-cell -time">2:15 pm - 3:15 pm</span>
-                                   </div>
-                               </div>
-                           </div>
                        </div>
-
-
                    </div>
-
-
                        <?php endif;?>
                    <?php endforeach;?>
                </div>
@@ -286,28 +188,20 @@ if (true):
                 </div>
                 <div class="col-sm-8">
                 <div id="fakeimg-googlestore"></div>
-
-
             </div>
         </div>
     </div>
-
 </div>
 <script>
     "use strict";
     var locations = <?php echo $storelocator ?>;
-
     function initMap(sel) {
-
         var map = new google.maps.Map(document.getElementById('fakeimg-googlestore'), {
             zoom: 6,
             center: new google.maps.LatLng(<?php echo $latitude ?>, <?php echo $longitude?>)
         });
-
-
         var i;
         var contentString = new Array("");
-
         var infowindow = new google.maps.InfoWindow();
         for (i = 0; i < locations.length; i++) {
             var marker = new google.maps.Marker({
@@ -315,35 +209,15 @@ if (true):
                 map: map,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
-            contentString[i] ='<div class="storelocator-block blocklaong">'+
-                '<div class="storelocator-image">'+
-                '<img src="'+locations[i]["image"]+'" width="100%" height="100%">'+
-                '</div>'+
+            contentString[i] ='<div class="storelocator-block blocklaong">'+ '<div class="storelocator-image">'+
+                '<img src="'+locations[i]['image']+'" width="100%" height="100%">'+'</div>'+
                 '<div class="storelocator-store-information">'+
                 '<div class="storelocator-title">'+
-                '<a class="storelocator-link" href="#" title="Fashion Gallery" target="_blank">'+
-                locations[i]['store_name']+
-                '</a>'+
-                '</div> '+
-                '<br>'+
-                "sakdjakda"+
-                '<br>'+
-                'Zip: 11106'+
-                '<br>'+
-                "State:"+
-                locations[i]['store_city']+
-                '<br>'+
-                "Address:" +
-                locations[i]['address']+
-                '<br>'+
-                '<div style="display: none;" class="amasty_distance" id="amasty_distance_1">'+
-                "Distance:" +
-                locations[i]['country']+
-                '<span class="amasty_distance_number">'+
-                '</span>'+
-                '</div>'+
-                '</div>'+
-                '</div>';
+                '<a class="storelocator-link" href="#" title="'+locations[i]["store_name"]+'" target="_blank">'+
+                locations[i]['store_name']+ '</a>'+ '</div> '+'<br>'+"City"
+                locations[i]['store_city']+ '<br>'+ 'Zip: 11106'+ '<br>'+ '<br>'+ "Address:" + locations[i]['address']+ '<br>'+
+                '<div style="display: none;" class="amasty_distance" id="amasty_distance_1">'+ "Distance:" + locations[i]['country']+
+                '<span class="amasty_distance_number">'+ '</span>'+ '</div>'+ '</div>'+ '</div>';
             google.maps.event.addListener(marker, 'click', (function(marker,i) {
                 return function() {
                     var content = contentString;
@@ -359,10 +233,8 @@ if (true):
                 google.maps.event.trigger(contentString[this.dataset.gmapId], 'click');
             })
         }
-
         const mapsearch = document.getElementsByClassName('map-search');
         const input = document.getElementById("search-maps");
-
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(mapsearch);
         const searchBox = new google.maps.places.SearchBox(input);
         map.addListener("bounds_changed", () => {
@@ -371,22 +243,14 @@ if (true):
         let markers = [];
         searchBox.addListener("places_changed", () => {
             const places = searchBox.getPlaces();
-
-            if (places.length == 0) {
-                return;
-            }
-
+            if (places.length == 0) { return;}
             markers.forEach(marker => {
                 marker.setMap(null);
             });
             markers = [];
-
             const bounds = new google.maps.LatLngBounds();
             places.forEach(place => {
-                if (!place.geometry) {
-                    console.log("Returned place contains no geometry");
-                    return;
-                }
+                if (!place.geometry) { return;}
                 const icon = {
                     url: place.icon,
                     size: new google.maps.Size(71, 71),
@@ -410,10 +274,8 @@ if (true):
             });
             map.fitBounds(bounds);
         });
-
     }
     function SearchList(){
-
         document.getElementById('timer-name').addEventListener('click', function(){
             var option_value = this.value;
             console.log(option_value);
@@ -422,7 +284,6 @@ if (true):
             att.value = option_value;
             filter.setAttributeNode(att);
         });
-
         document.getElementById('filter-bt').addEventListener('click', function (){
             var data_time_id = this.getAttribute("data-time-id");
             var contentBlock = new Array("");
@@ -433,84 +294,27 @@ if (true):
                      contentBlock[i] =
                         '<div class="storelocator-store-desc" name="leftLocation" data-mapid="storelocator-map-canvas5f339f81a2117" data-amid="1">'+
                         '<div class="storelocator-block blocklaong" data-latitude="'+locations[i]["latitude"]+'" data-longitude="'+locations[i]["longitude"]+'" data-gmap-id="'+locations[i]["gmaps_id"]+'">'+
-                        '<div class="storelocator-image">'+
-                        '<img src="" width="100%" height="100%">'+
-                        '</div>'+
+                        '<div class="storelocator-image">'+'<img src="" width="100%" height="100%">'+'</div>'+
                         '<div class="storelocator-store-information">'+
                         '<div class="storelocator-title">'+
                         '<a class="storelocator-link" href="#" title="Fashion Gallery" target="_blank">'+
-                        locations[i]["store_name"]+
-                        '</a>'+'</div>'+'<br>'+
-                        locations[i]["store_city"]+'<br>'+
-                        " Zip: 11106 "+"<br>"+
-                        " State:"+'<br>'+
-                        " Address:"+locations[i]["address"] +'<br>'+
+                        locations[i]["store_name"]+ '</a>'+'</div>'+'<br>'
+                         +"City"+locations[i]['store_city']+ '<br>'+
+                        " Zip: 11106 "+"<br>"+ " Address:"+locations[i]["address"] +'<br>'+
                         '<div style="display: none;" class="amasty_distance" id="amasty_distance_1">'+"Distance:" +
-                         '<span class="amasty_distance_number">'+'</span>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
+                         '<span class="amasty_distance_number">'+'</span>'+ '</div>'+ '</div>'+ '</div>';
                     fake_storelocator.innerHTML = contentBlock;
                 }
             }
         });
-
     }SearchList();
-
 </script>
-
-<script type="text/javascript">
-    "use strict";
-    require([ 'jquery', 'jquery/ui'], function($){
-        var valueid = [""];
-        var new_arr = [""];
-
-
-        $('.storelocator-block .storelocator-filters-container .storelocator-attribute-filter').click (function(){
-                $('.storelocator-hidden-filter').toggle();
-                 $('.fakeimg').height("58vh");
-        })
-
-        $(".search-field .input-select-brand").click(function(){
-            $("#select-options").show();
-        })
-
-        $("#select-options .option-select").click(function (){
-            $("#select-options").hide();
-            var content = $(this).text();
-            var optionvalue =$(this).val();
-            var li_search = '<li class="search-choice">'+'<span>'+content+'</span>'+
-                '<a  class="search-choice-close" data-option-array="'+optionvalue+'">'+"x"+'</a>'+'</li>';
-            $('#brand-search').append(li_search);
-            valueid.push(optionvalue);
-            $(this).css({"opacity":"0.4"});
-            $(this).off( "click");
+<?php if(1==1): ?>
+    <script>
+        require(['jquery', 'magepow/googlestorelocator'], function ($ ,myJquery) {
+            myJquery();
         });
+    </script>
+<?php endif;?>
 
-
-        $(".search-choice .search-choice-close").on('click', function(){
-            $(this).parent().remove();
-            var optionArray = $(this).data("optionArray");
-            var new_arr = valueid.filter(item => item !== optionArray);
-        })
-
-        $('.storelocator-search-radius .storelocator-wrapper').click(function(event) {
-            var x = event.offsetX;
-            $('.ui-slider-handle').css({"left": x + 'px'});
-            var test = document.getElementsByClassName('storelocator-wrapper')[0];
-            var width = (test.clientWidth + 1);
-            var k = x / width * 500;
-            var sk = Math.ceil(k);
-            $('.amount').html(sk);
-        })
-
-    });
-
-
-</script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&v=weekly"></script>
-<!--AIzaSyACuiJvBHQVKqXf2fRWY9csv6Ld9yFoYmk-->
-
-<!--AIzaSyAU1ZZ8SzyYkg-y43dVmEuLZzVUWOLpr3E-->
-<?php endif; ?>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&v=weekly"></script>
