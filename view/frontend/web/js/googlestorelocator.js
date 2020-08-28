@@ -1,18 +1,11 @@
-define([
-    'jquery',
-    'jquery-ui-modules/widget'
-], function ($) {
-    'use strict';
-
-    $.widget('mage.googlestorelocator', {
-        _create: function(){
+define(['jquery'], function($){
+    "use strict";
             return function myJquery(){
             var value_id = [""];
 
             $(".storelocator-block .storelocator-filters-container .storelocator-attribute-filter").click(function () {
                 $('.storelocator-hidden-filter').toggle();
                 $('.fakeimg').height("58vh");
-                console.log("sdadsadsa")
             })
 
             $(".search-field .input-select-brand").click(function () {
@@ -53,8 +46,8 @@ define([
                 var sk = Math.ceil(k);
                 $('.amount').html(sk);
             })
-            }
+
         }
-    });
-    return $.mage.googlestorelocator;
+
+
 });
