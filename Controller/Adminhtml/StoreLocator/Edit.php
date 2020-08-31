@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Controller\Adminhtml\StoreLocator;
 
 use Magento\Backend\App\Action;
@@ -12,25 +21,10 @@ class Edit extends \Magento\Backend\App\Action
      * @see _isAllowed()
      */
     const ADMIN_RESOURCE = 'Magepow_StoreLocator::save';
-
-    /**
-     * Core registry
-     *
-     * @var \Magento\Framework\Registry
-     */
     protected $_coreRegistry;
 
-    /**
-     * @var \Magento\Framework\View\Result\PageFactory
-     */
     protected $resultPageFactory;
     protected $model;
-
-    /**
-     * @param Action\Context $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-     * @param \Magento\Framework\Registry $registry
-     */
     public function __construct(
         Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
@@ -43,11 +37,6 @@ class Edit extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
-    /**
-     * Init actions
-     *
-     * @return \Magento\Backend\Model\View\Result\Page
-     */
     protected function _initAction()
     {
         $resultPage = $this->resultPageFactory->create();

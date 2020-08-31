@@ -34,13 +34,13 @@
     </virtualType>
     <virtualType name="Magepow\StoreLocator\Model\ResourceModel\StoreLocator\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">google_store</argument>
+            <argument name="mainTable" xsi:type="string">magepow_googlestorelocator</argument>
             <argument name="resourceModel" xsi:type="string">Magepow\StoreLocator\Model\ResourceModel\StoreLocator</argument>
         </arguments>
     </virtualType>
     <virtualType name="Magepow\StoreLocator\Model\ResourceModel\WorkingTime\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">working_time</argument>
+            <argument name="mainTable" xsi:type="string">magepow_storeworkingtime</argument>
             <argument name="resourceModel" xsi:type="string">Magepow\StoreLocator\Model\ResourceModel\WorkingTime</argument>
         </arguments>
     </virtualType>

@@ -1,30 +1,27 @@
 <?php
-
-namespace Magepow\StoreLocator\Block\Adminhtml\StoreLocator\Grid\Renderer\Action;
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
+namespace Magepow\StoreLocator\Block\Adminhtml\Grid\Renderer\Action;
 
 use Magento\Store\Api\StoreResolverInterface;
 
 class UrlBuilder
 {
-    /**
-     * @var \Magento\Framework\UrlInterface
-     */
+
     protected $frontendUrlBuilder;
-    /**
-     * @param \Magento\Framework\UrlInterface $frontendUrlBuilder
-     */
+
     public function __construct(\Magento\Framework\UrlInterface $frontendUrlBuilder)
     {
         $this->frontendUrlBuilder = $frontendUrlBuilder;
     }
-    /**
-     * Get action url
-     *
-     * @param string $routePath
-     * @param string $scope
-     * @param string $store
-     * @return string
-     */
     public function getUrl($routePath, $scope, $store)
     {
         $this->frontendUrlBuilder->setScope($scope);
@@ -35,7 +32,6 @@ class UrlBuilder
                 '_query' => [StoreResolverInterface::PARAM_NAME => $store]
             ]
         );
-
         return $href;
     }
 }

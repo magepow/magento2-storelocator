@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <googlestorelocator>
+        <magepow_storelocator>
             <general_setting>
                 <api_key>AIzaSyACuiJvBHQVKqXf2fRWY9csv6Ld9yFoYmk</api_key>
                 <enable_page>1</enable_page>
@@ -36,6 +36,6 @@
             </store_locator_page>
 
 
-        </googlestorelocator>
+        </magepow_storelocator>
     </default>
 </config>

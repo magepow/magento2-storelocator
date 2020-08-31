@@ -1,27 +1,20 @@
 <?php
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Controller\Adminhtml\StoreLocator;
 class PostDataProcessor
 {
-    /**
-     * @var \Magento\Framework\Stdlib\DateTime\Filter\Date
-     */
     protected $dateFilter;
-
-    /**
-     * @var \Magento\Framework\View\Model\Layout\Update\ValidatorFactory
-     */
     protected $validatorFactory;
-
-    /**
-     * @var \Magento\Framework\Message\ManagerInterface
-     */
     protected $messageManager;
-
-    /**
-     * @param \Magento\Framework\Stdlib\DateTime\Filter\Date $dateFilter
-     * @param \Magento\Framework\Message\ManagerInterface $messageManager
-     * @param \Magento\Framework\View\Model\Layout\Update\ValidatorFactory $validatorFactory
-     */
     public function __construct(
         \Magento\Framework\Stdlib\DateTime\Filter\Date $dateFilter,
         \Magento\Framework\Message\ManagerInterface $messageManager,
@@ -31,13 +24,6 @@ class PostDataProcessor
         $this->messageManager = $messageManager;
         $this->validatorFactory = $validatorFactory;
     }
-
-    /**
-     * Filtering posted data. Converting localized data if needed
-     *
-     * @param array $data
-     * @return array
-     */
     public function filter($data)
     {
         $filterRules = [];
@@ -47,21 +33,12 @@ class PostDataProcessor
                 $filterRules[$dateField] = $this->dateFilter;
             }
         }
-
         return (new \Zend_Filter_Input($filterRules, [], $data))->getUnescaped();
     }
-
-    /**
-     * Validate post data
-     *
-     * @param array $data
-     * @return bool     Return FALSE if someone item is invalid
-     */
     public function validate($data)
     {
         $errorNo = true;
         if (!empty($data['layout_update_xml']) || !empty($data['custom_layout_update_xml'])) {
-            /** @var $validatorCustomLayout \Magento\Framework\View\Model\Layout\Update\Validator */
             $validatorCustomLayout = $this->validatorFactory->create();
             if (!empty($data['layout_update_xml']) && !$validatorCustomLayout->isValid($data['layout_update_xml'])) {
                 $errorNo = false;
@@ -77,13 +54,6 @@ class PostDataProcessor
         }
         return $errorNo;
     }
-
-    /**
-     * Check if required fields is not empty
-     *
-     * @param array $data
-     * @return bool
-     */
     public function validateRequireEntry(array $data)
     {
         $requiredFields = [

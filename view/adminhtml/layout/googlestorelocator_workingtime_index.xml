@@ -3,7 +3,6 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-
             <uiComponent name="googlestorelocator_workingtime_listing"/>
         </referenceContainer>
     </body>

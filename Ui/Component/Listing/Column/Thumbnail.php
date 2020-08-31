@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -23,26 +32,17 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
         $this->_storeManager = $storeManager;
         $this->urlBuilder = $urlBuilder;
     }
-
-    /**
-     * Prepare Data Source
-     */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            // Get column name
             $fieldName = $this->getData('name');
-
             foreach ($dataSource['data']['items'] as & $item) {
-                // Get image URL
                 $url = '';
                 if ($item[$fieldName] != '') {
                     $url = $this->_storeManager->getStore()->getBaseUrl(
                             \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
                         ) . 'storelocator/images/' . $item[$fieldName];
                 }
-
-                // Add image with link and alternative text
                 $item[$fieldName . '_src'] = $url;
                 $item[$fieldName . '_alt'] = $item[$fieldName];
                 $item[$fieldName . '_link'] = $this->urlBuilder->getUrl(

@@ -1,25 +1,21 @@
 <?php
-
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Controller\Adminhtml\StoreLocator;
 
 class NewAction extends \Magento\Backend\App\Action
 {
-    /**
-     * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
-     */
     const ADMIN_RESOURCE = 'Magepow_StoreLocator::save';
-
-    /**
-     * @var \Magento\Backend\Model\View\Result\Forward
-     */
     protected $resultForwardFactory;
 
-    /**
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
-     */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
@@ -27,12 +23,6 @@ class NewAction extends \Magento\Backend\App\Action
         $this->resultForwardFactory = $resultForwardFactory;
         parent::__construct($context);
     }
-
-    /**
-     * Forward to edit
-     *
-     * @return \Magento\Backend\Model\View\Result\Forward
-     */
     public function execute()
     {
         /** @var \Magento\Backend\Model\View\Result\Forward $resultForward */

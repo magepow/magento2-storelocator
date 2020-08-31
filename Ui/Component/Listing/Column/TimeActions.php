@@ -1,42 +1,29 @@
 <?php
-
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
-use Magepow\StoreLocator\Block\Adminhtml\WorkingTime\Grid\Renderer\Action\UrlBuilder;
-//use Magento\Cms\Block\Adminhtml\Page\Grid\Renderer\Action\UrlBuilder;
+use Magepow\StoreLocator\Block\Adminhtml\Grid\Renderer\Action\UrlBuilder;
 use Magento\Framework\UrlInterface;
 
-/**
- * Class PageActions
- */
 class TimeActions extends Column
 {
-    /** Url path */
     const STORELOCATOR_URL_PATH_EDIT = 'googlestorelocator/workingtime/edit';
     const STORELOCATOR_URL_PATH_DELETE = 'googlestorelocator/workingtime/delete';
-
-    /** @var UrlBuilder */
     protected $actionUrlBuilder;
-    /** @var UrlInterface */
     protected $urlBuilder;
-
-    /**
-     * @var string
-     */
     private $editUrl;
-
-    /**
-     * @param ContextInterface $context
-     * @param UiComponentFactory $uiComponentFactory
-     * @param UrlBuilder $actionUrlBuilder
-     * @param UrlInterface $urlBuilder
-     * @param array $components
-     * @param array $data
-     * @param string $editUrl
-     */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
@@ -51,13 +38,6 @@ class TimeActions extends Column
         $this->editUrl = $editUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
-
-    /**
-     * Prepare Data Source
-     *
-     * @param array $dataSource
-     * @return array
-     */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
@@ -81,7 +61,6 @@ class TimeActions extends Column
                 }
             }
         }
-
         return $dataSource;
     }
 }

@@ -1,12 +1,16 @@
 var config = {
     map: {
         '*': {
-            storelocator: 'Magepow_StoreLocator/js/googlestorelocator'
+            googlestorelocator: 'Magepow_StoreLocator/js/googlestorelocator'
+        },
+        paths: {
+            'magepow/googlestorelocator': 'Magepow_StoreLocator/js/googlestorelocator',
         },
         shim: {
-            storelocator: {
+            googlestorelocator: {
                 deps: ['jquery']
-            }
+            },
+
         }
     }
 };

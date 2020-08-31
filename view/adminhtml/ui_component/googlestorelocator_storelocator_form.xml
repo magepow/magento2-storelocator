@@ -43,7 +43,6 @@
     <fieldset name="googlestorelocator_storelocator">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <!-- <item name="collapsible" xsi:type="boolean">true</item> -->
                 <item name="label" xsi:type="string" translate="true">Store Locator Form</item>
                 <item name="sortOrder" xsi:type="number">19</item>
             </item>
@@ -198,7 +197,7 @@
                     <item name="label" xsi:type="string" translate="true">URL Key</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">storelocator</item>
-                    <item name="sortOrder" xsi:type="number">25</item>
+                    <item name="sortOrder" xsi:type="number">26</item>
                     <item name="dataScope" xsi:type="string">identifier</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -215,7 +214,7 @@
                     <item name="label" xsi:type="string" translate="true">Descripttion</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">storelocator</item>
-                    <item name="sortOrder" xsi:type="number">25</item>
+                    <item name="sortOrder" xsi:type="number">27</item>
                     <item name="dataScope" xsi:type="string">description</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -230,7 +229,7 @@
                     <item name="label" xsi:type="string" translate="true">Store Descripttion</item>
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">storelocator</item>
-                    <item name="sortOrder" xsi:type="number">26</item>
+                    <item name="sortOrder" xsi:type="number">28</item>
                     <item name="dataScope" xsi:type="string">store_description</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -238,36 +237,6 @@
                 </item>
             </argument>
         </field>
-
-
-<!--        <field name="select_example" formElement="select">-->
-<!--            <settings>-->
-<!--                <dataType>text</dataType>-->
-<!--                <label translate="true"> Country</label>-->
-<!--                <dataScope>select_example</dataScope>-->
-<!--            </settings>-->
-<!--            <formElements>-->
-<!--                <select>-->
-<!--                    <settings>-->
-<!--                        <options>-->
-<!--                            <option name="1" xsi:type="array">-->
-<!--                                <item name="value" xsi:type="string">1</item>-->
-<!--                                <item name="label" xsi:type="string">Việt Nam</item>-->
-<!--                            </option>-->
-<!--                            <option name="2" xsi:type="array">-->
-<!--                                <item name="value" xsi:type="string">2</item>-->
-<!--                                <item name="label" xsi:type="string">EngLand</item>-->
-<!--                            </option>-->
-<!--                            <option name="3" xsi:type="array">-->
-<!--                                <item name="value" xsi:type="string">3</item>-->
-<!--                                <item name="label" xsi:type="string">Hệ mặt trời</item>-->
-<!--                            </option>-->
-<!--                        </options>-->
-<!--                        <caption translate="true">&#45;&#45; Please Select &#45;&#45;</caption>-->
-<!--                    </settings>-->
-<!--                </select>-->
-<!--            </formElements>-->
-<!--        </field>-->
 
         <field name="time_id">
             <argument name="data" xsi:type="array">

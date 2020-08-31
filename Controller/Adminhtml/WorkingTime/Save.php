@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Controller\Adminhtml\WorkingTime;
 
 use Magento\Backend\App\Action;
@@ -9,29 +18,10 @@ use Magento\Framework\Exception\LocalizedException;
 
 class Save extends \Magento\Backend\App\Action
 {
-    /**
-     * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
-     */
     const ADMIN_RESOURCE = 'Magepow_StoreLocator::save';
-
-    /**
-     * @var PostDataProcessor
-     */
     protected $dataProcessor;
-
-    /**
-     * @var DataPersistorInterface
-     */
     protected $dataPersistor;
     protected $model;
-
-    /**
-     * @param Action\Context $context
-     * @param PostDataProcessor $dataProcessor
-     * @param DataPersistorInterface $dataPersistor
-     */
     public function __construct(
         Action\Context $context,
         PostDataProcessor $dataProcessor,
@@ -44,16 +34,9 @@ class Save extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
-    /**
-     * Save action
-     *
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             $data = $this->dataProcessor->filter($data);
@@ -67,7 +50,7 @@ class Save extends \Magento\Backend\App\Action
                     $data['image'] = $data['images'][0]['name'];
                 else
                     $data['image'] = null;
-            }   
+            }
 
             $id = $this->getRequest()->getParam('time_id');
             if ($id) {

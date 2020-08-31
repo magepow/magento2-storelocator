@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Setup;
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -14,7 +23,7 @@ class InstallSchema implements InstallSchemaInterface{
 
 
         $table = $installer->getConnection()->newTable(
-            $installer->getTable('working_time')
+            $installer->getTable('magepow_storeworkingtime')
         )->addColumn(
             'time_id',
             \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
@@ -72,30 +81,8 @@ class InstallSchema implements InstallSchemaInterface{
         )->setOption('charset', 'utf8');
         $installer->getConnection()->createTable($table);
 
-
-//        $table = $installer->getConnection()->newTable(
-//            $installer->getTable('trademark')
-//        )->addColumn(
-//            'trademark_id',
-//            \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
-//            null,
-//            ['identity' => true, 'nullable' => false, 'primary' => true, 'unsigned' => true],
-//            'trademark_id'
-//        )->addColumn(
-//            'name_trademark',
-//            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-//            255,
-//            ['nullable' => true],
-//            'Name Trademark'
-//        )->setOption('charset', 'utf8');;
-//        $installer->getConnection()->createTable($table);
-
-
-
-
-
         $table = $installer->getConnection()->newTable(
-            $installer->getTable('google_store')
+            $installer->getTable('magepow_googlestorelocator')
         )->addColumn(
             'gmaps_id',
             \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
@@ -193,14 +180,14 @@ class InstallSchema implements InstallSchemaInterface{
             ['nullable' => false, 'default' => '1'],
             'Is Store Active'
         )->addForeignKey(
-            $installer->getFkName('google_store', 'time_id', 'working_time', 'time_id'),
+            $installer->getFkName('magepow_googlestorelocator', 'time_id', 'magepow_storeworkingtime', 'time_id'),
             'time_id',
-            $installer->getTable('working_time'),
+            $installer->getTable('magepow_storeworkingtime'),
             'time_id',
             \Magento\Framework\DB\Ddl\Table::ACTION_NO_ACTION
         )->addIndex(
             $setup->getIdxName(
-                $installer->getTable('google_store'),
+                $installer->getTable('magepow_googlestorelocator'),
                 ['store_name'],
                 AdapterInterface::INDEX_TYPE_FULLTEXT
             ),

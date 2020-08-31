@@ -1,4 +1,14 @@
 <?php
+/**
+ * Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ * @@Create Date: 2017-08-29 22:55:21
+ * @@Modify Date: 2018-03-15 00:21:25
+ */
 namespace Magepow\StoreLocator\Controller\Adminhtml\StoreLocator;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
@@ -8,34 +18,15 @@ use Magepow\StoreLocator\Model\ResourceModel\StoreLocator\CollectionFactory;
 
 class MassDisable extends \Magento\Backend\App\Action
 {
-    /**
-     * @var Filter
-     */
+
     protected $filter;
-
-    /**
-     * @var CollectionFactory
-     */
     protected $collectionFactory;
-
-    /**
-     * @param Context $context
-     * @param Filter $filter
-     * @param CollectionFactory $collectionFactory
-     */
     public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory)
     {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
         parent::__construct($context);
     }
-
-    /**
-     * Execute action
-     *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     * @throws \Magento\Framework\Exception\LocalizedException|\Exception
-     */
     public function execute()
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
@@ -44,10 +35,7 @@ class MassDisable extends \Magento\Backend\App\Action
             $item->setIsActive(false);
             $item->save();
         }
-
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been disabled.', $collection->getSize()));
-
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
     }
