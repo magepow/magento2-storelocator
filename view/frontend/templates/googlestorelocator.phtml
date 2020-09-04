@@ -279,4 +279,4 @@ foreach ($block->getAllStores() as $key=>$store){$latitude = $store['latitude'];
         });
     </script>
 <?php endif;?>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&v=weekly"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $helper->getGMapAPIKey('api_key');?>&callback=initMap&libraries=places&v=weekly"></script>
