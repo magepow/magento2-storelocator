@@ -193,7 +193,7 @@ foreach ($block->getAllStores() as $key=>$store){$latitude = $store['latitude'];
     var longitude = <?php echo $longitude?>;
     function initMap(sel) {
         var map = new google.maps.Map(document.getElementById('fakeimg-googlestore'), {
-            zoom: 10,
+            zoom: 7,
             center: new google.maps.LatLng(latitude, longitude)
         });
         var i;
