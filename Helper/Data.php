@@ -35,6 +35,11 @@ class Data extends AbstractHelper
         if($cfg) return $this->scopeConfig->getValue( $cfg, \Magento\Store\Model\ScopeInterface::SCOPE_STORE );
         return $this->scopeConfig;
     }
+    public function getGMapAPIKey($googlekey)
+    {
+        
+        return $this->scopeConfig->getValue('magepow_storelocator/general_setting/'.$googlekey, ScopeInterface::SCOPE_STORE);
+    }
 
     public function getConfigModule($cfg='', $value=null)
     {
