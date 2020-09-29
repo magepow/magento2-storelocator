@@ -21,7 +21,7 @@
 
         <add id="Magepow_StoreLocator::working_time" title="Working Time"
              translate="title" module="Magepow_StoreLocator"
-             sortOrder="10" resource="Magepow_StoreLocator::working_time"
+             sortOrder="3" resource="Magepow_StoreLocator::working_time"
              parent="Magepow_StoreLocator::manage_stores"
              action="googlestorelocator/workingtime/"/>
 
